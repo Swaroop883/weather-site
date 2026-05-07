@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SkyCheck — Real-Time Weather App</title>
+    <meta
+      name="description"
+      content="Get real-time weather information for any city in the world. Check temperature, humidity, wind speed, and weather conditions instantly."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <main class="container" id="app">
+
+      <header class="app-header">
+        <div class="logo">
+          <span class="logo-icon">🌤️</span>
+          <h1 class="logo-text">SkyCheck</h1>
+        </div>
+        <p class="tagline">Real-time weather for any city on Earth</p>
+      </header>
+
+      <section class="search-card" aria-label="City search">
+        <div class="search-wrapper">
+          <label for="city-input" class="visually-hidden">Enter city name</label>
+          <input
+            type="text"
+            id="city-input"
+            class="city-input"
+            placeholder="Enter a city name…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="City name"
+          />
+          <button id="get-weather-btn" class="get-weather-btn" aria-label="Get weather">
+            <span class="btn-text">Get Weather</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+
+        <div class="quick-cities" aria-label="Quick city suggestions">
+          <span class="quick-label">Try:</span>
+          <button class="city-chip" data-city="London">London</button>
+          <button class="city-chip" data-city="Tokyo">Tokyo</button>
+          <button class="city-chip" data-city="New York">New York</button>
+          <button class="city-chip" data-city="Mumbai">Mumbai</button>
+          <button class="city-chip" data-city="Paris">Paris</button>
+        </div>
+      </section>
+
+      <div id="loading-indicator" class="loading-indicator hidden" role="status" aria-live="polite">
+        <div class="spinner"></div>
+        <p class="loading-text">Fetching weather…</p>
+      </div>
+
+      <div id="error-box" class="error-box hidden" role="alert" aria-live="assertive">
+        <span class="error-icon">⚠️</span>
+        <p id="error-message" class="error-message">Something went wrong.</p>
+      </div>
+
+      <section id="weather-card" class="weather-card hidden" aria-label="Weather results" aria-live="polite">
+
+        <div class="weather-header">
+          <div class="weather-icon-large" id="weather-icon">🌡️</div>
+          <div>
+            <h2 class="city-name" id="city-name">--</h2>
+            <p class="weather-desc" id="weather-desc">--</p>
+          </div>
+        </div>
+
+        <div class="temperature-display">
+          <span class="temp-value" id="temperature">--</span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card" id="stat-humidity">
+            <div class="stat-icon">💧</div>
+            <div class="stat-info">
+              <span class="stat-label">Humidity</span>
+              <span class="stat-value" id="humidity">--</span>
+            </div>
+          </div>
+
+          <div class="stat-card" id="stat-wind">
+            <div class="stat-icon">💨</div>
+            <div class="stat-info">
+              <span class="stat-label">Wind Speed</span>
+              <span class="stat-value" id="wind-speed">--</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="last-updated" id="last-updated"></p>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
