@@ -15,7 +15,7 @@ const lastUpdatedEl = document.getElementById("last-updated");
 
 const cityChips = document.querySelectorAll(".city-chip");
 
-const RENDER_BACKEND_URL = "https://YOUR-RENDER-APP-NAME.onrender.com";
+const RENDER_BACKEND_URL = "https://weather-backend-qfp7.onrender.com";
 
 const BACKEND_URL =
   window.location.hostname === "localhost" ||
